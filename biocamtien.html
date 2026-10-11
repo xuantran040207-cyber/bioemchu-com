@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>𝑪𝒂̂̉𝒎 𝑻𝒊𝒆̂𝒏</title>
+    <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=9dff2abb-1072-4909-8c58-5838aac1a255
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+    <meta name="description" content="BolaBossios"/>
+    <meta name="keywords" content="BolaBossios"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&display=swap" rel="stylesheet">
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+             --primary: linear-gradient(135deg, #7f7fd5, #a07df0);
+            --accent: #d946ef;
+            --dark-bg: #050507;
+            --panel-bg: rgba(15, 15, 20, 0.65);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #e2e8f0;
+        }
+      /* PC (mặc định) */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url('https://sf-static.upanhlaylink.com/img/image_202610103e31d5851cae34d2b65fabcb78024707.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    body::after {
+        background: url('https://sf-static.upanhlaylink.com/img/image_202610105cf93d47c3a9c6a22a15658ab296c401.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: scroll; /* tránh lag trên mobile */
+    }
+}
+
+/* sao */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    background-image: 
+        radial-gradient(2px 2px at 10px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 200px 150px, #fff, transparent),
+        radial-gradient(2px 2px at 400px 300px, #fff, transparent),
+        radial-gradient(2px 2px at 600px 100px, #fff, transparent);
+
+    background-size: 200px 200px;
+    animation: starsAnimation 60s linear infinite;
+
+    opacity: 1; /* 👈 giảm xuống */
+    z-index: 0;
+}
+
+@keyframes starsAnimation {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2000px); }
+}
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .snowflakes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
+        .snowflake { color: #fff; font-size: 1.2em; position: absolute; top: -10%; animation: fall linear infinite; opacity: 0.5; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.116);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.082);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+        }
+        .avatar-container {
+            position: relative;
+            padding: 8px;
+        }
+        .avatar-container::before {
+            content: ''; position: absolute; inset: 0;
+            border-radius: 50%; padding: 3px;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa, #ffffff, #3b82f6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: rotateGlow 4s linear infinite;
+        }
+        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
+        .btn-action {
+            background: white; width: 50px; height: 50px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06); color: #1e293b; transition: 0.3s;
+            flex-shrink: 0; border: 1px solid rgba(255,255,255,0.8);
+        }
+        .btn-action:hover {
+            background: var(--primary); color: white; transform: rotate(8deg) scale(1.1);
+        }
+        .list-container {
+            margin: 0 15px; background: rgba(255, 255, 255, 0.3);
+            border-radius: 30px; border: 1px solid rgba(255,255,255,0.4); overflow: hidden;
+        }
+        .list-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: 0.3s;
+        }
+        .list-row:hover { background: rgba(255,255,255,0.2); }
+        .list-row img {
+            width: 58px; height: 58px; border-radius: 18px;
+            object-fit: cover; border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .section-title { font-size: 24px; font-weight: 800; text-align: center; margin: 40px 0 20px; color: #06f591; text-transform: uppercase; letter-spacing: 1px; }
+        .faq-box {
+            width: 100px; height: 85px; border: 3px solid #1e293b; border-radius: 20px;
+            position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: 0.3s; background: white;
+        }
+        .faq-box:hover { background: #1e293b; color: white; transform: scale(1.1); }
+        .faq-box::after {
+            content: ''; position: absolute; bottom: -15px; left: 20px;
+            border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 15px solid #1e293b;
+        }
+        @keyframes bg-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+        
+        /* PARTICLES */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    to {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* MOUSE GLOW */
+.mouse-glow {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(127,127,213,0.25), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: 0.05s linear;
+}
+
+body::before {
+    pointer-events: none;
+}
+
+.particles {
+    pointer-events: none;
+}
+
+.mouse-glow {
+    pointer-events: none;
+}
+
+.verify {
+    width: 31px;
+    height: 31px;
+    margin-left: 2px;
+    vertical-align: -3px;
+}
+
+.left-col {
+    position: relative;
+    z-index: 10;
+}
+
+/* OVERLAY XỊN */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 20, 0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.4s ease;
+    z-index: 9998;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 280px;
+    height: 100%;
+
+    background: rgba(20,20,30,0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-left: 1px solid rgba(255,255,255,0.08);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.6);
+
+    padding: 24px;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+
+    transform: translateX(110%);
+    opacity: 0;
+
+    transition: 
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.35s ease;
+
+    will-change: transform;
+    z-index: 9999;
+}
+
+#sidebar.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* TITLE MENU */
+#sidebar h2 {
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+
+/* LINK MENU */
+#sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 12px;
+    margin-bottom: 10px;
+
+    font-weight: 700;
+    color: #cbd5f5;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid transparent;
+
+    transition: all 0.3s ease;
+}
+
+/* hover xịn */
+#sidebar a:hover {
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
+    color: white;
+
+    transform: translateX(8px) scale(1.03);
+
+    box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+}
+
+
+/* ICON */
+#sidebar i {
+    font-size: 16px;
+}
+
+
+/* BUTTON */
+#menuBtn {
+    transition: transform 0.3s ease;
+}
+
+#menuBtn:active {
+    transform: scale(0.9);
+}
+
+/* HIỆU ỨNG MỞ MƯỢT */
+#sidebar.active {
+    animation: slideIn 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+ /* ==== Music Controls ==== */
+    .music-controls{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.096);
+        padding: 12px;
+        border-radius: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .music-btn{
+        width: 45px;
+        height: 45px;
+        background: rgba(251, 251, 252, 0.089);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .music-btn:hover{
+        transform: scale(1.1);
+        background: rgba(243, 244, 245, 0.137);
+    }
+    
+    .select-btn{
+        background: rgba(156, 89, 182, 0.452) !important;
+    }
+    
+    .select-btn:hover{
+        background: rgba(141, 68, 173, 0.397) !important;
+    }
+
+
+    /* ==== Song List Panel ==== */
+    .song-list-panel{
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.089);
+        backdrop-filter: blur(2px);
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        z-index: 1001;
+        width: 250px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .song-list-panel.show{
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+    
+    .song-list-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-weight: 600;
+        color: #fff;
+    }
+    
+    .close-list-btn{
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #ccc;
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    
+    .song-list-content{
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
+    .song-list-item{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    
+    .song-list-item:hover{
+        background: rgba(77, 171, 247, 0.2);
+    }
+    
+    .song-list-item.active{
+        background: rgba(77, 171, 247, 0.3);
+        color: #4dabf7;
+    }
+
+    /* ==== Song Notification ==== */
+    .song-notification{
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100px);
+        background: rgba(0, 0, 0, 0.473);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        z-index: 1002;
+        backdrop-filter: blur(7px);
+        transition: all 0.5s ease;
+        opacity: 0;
+    }
+    
+    .song-notification.show{
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    
+    .notification-content{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    /* OVERLAY NỀN */
+#bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 10, 0),
+        rgba(5, 5, 10, 0)
+    );
+    backdrop-filter: blur(0px);
+    z-index: 0;
+    pointer-events: none;
+}
+    </style>
+</head>
+<body class="pb-16" onload="startClock(); initMusicPlayer();">
+   <div id="overlay"></div>
+<div id="bg-overlay"></div>
+<div id="sidebar">
+      <h2>Liên Hệ</h2>
+      <a href="https://www.facebook.com/ctienhaysuy/"><i class=""></i>Facebook</a>
+       <a href="https://zalo.me/0329170312"><i class=""></i>Zalo</a>
+</div>
+    <div class="particles" id="particles"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+<div class="left-col relative z-10">
+        <div class="left-col">
+    <div class="snowflakes">
+        <div class="snowflake" style="left:10%; animation-duration:10s;">❄</div>
+        <div class="snowflake" style="left:30%; animation-duration:8s;">•</div>
+        <div class="snowflake" style="left:50%; animation-duration:12s;">❄</div>
+        <div class="snowflake" style="left:70%; animation-duration:9s;">•</div>
+        <div class="snowflake" style="left:85%; animation-duration:15s;">❆</div>
+    </div>
+    <header class="bg-white/70 backdrop-blur-lg h-16 flex justify-between items-center px-6 sticky top-0 z-50 border-b border-white/50">
+        <span class="text-slate-800 font-black italic text-xl uppercase tracking-tighter">
+            <span class="text-blue-600"> EM CHU </span> CUTE
+        </span>
+        <div class="flex items-center gap-3">
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+            <i id="menuBtn" class="fa-solid fa-bars-staggered text-slate-800 text-2xl cursor-pointer"></i>
+        </div>
+    </header>
+    <div class="max-w-md mx-auto">
+        <div class="flex flex-col items-center pt-10">
+            <div class="avatar-container">
+                <div class="w-28 h-28 rounded-full bg-white shadow-2xl p-1 overflow-hidden">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_202610105cf93d47c3a9c6a22a15658ab296c401.jpg" class="w-full h-full rounded-full object-cover">
+                </div>
+                
+            </div>
+            <p class="mt-6 font-bold italic text-sm tracking-widest uppercase bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+    Welcome To
+</p>
+         <h1 class="text-3xl font-black text-yellow-400 text-center mt-1 flex items-center justify-center gap-2">
+ 𝑬𝒎 𝑪𝒉𝒖
+  <iframe 
+    src="https://lottie.host/embed/f3eae4ff-9d5e-42be-bdb5-8e8c7ad46d9f/YnctAIjEfm.lottie"
+    style="width:1.5em; height:1.5em; border:none;"
+    allowfullscreen>
+  </iframe>
+</h1>
+            <p class="mt-6 font-bold italic text-sm tracking-widest uppercase bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]">Chào Bạn! Chúc Bạn Một Ngày Vui.</p>
+            <div class="flex gap-5 mt-8">
+              <a href="www.tiktok.com/@c_tinz05" class="btn-action text-blue-400 text-2xl shadow-blue-100"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://zalo.me/0329170312" class="btn-action text-blue-400 text-2xl shadow-blue-100">
+  <i class="fa-solid fa-comment-dots"></i>
+</a>
+                <a href="https://www.facebook.com/ctienhaysuy/" class="btn-action text-blue-400 text-2xl shadow-blue-100"><i class="fa-brands fa-facebook"></i></a>
+    
+            </div>
+        </div>
+        <div class="mt-10 space-y-4 px-4">
+            <div class="glass-card p-5 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shop"></i>
+                    </div>
+                    <p class="font-black text-slate-700">Donate</p>
+                </div>
+                <a href="https://camtien-donet.netlify.app/" class="btn-action"><i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+            
+        <div class="text-center mt-14 mb-10">
+    <span class="inline-block text-[10px] font-black text-slate-400 tracking-[0.4em] uppercase bg-white/40 px-6 py-2 rounded-full border border-white/50">
+        © CẨM TIÊN CUTE 2026
+    </span>
+</div>
+    </div>
+    
+    <!-- ===== Background Music ===== -->
+  <audio id="bgMusic" preload="auto"></audio>
+
+
+    <script>
+        function startClock() {
+            const clockElements = document.querySelectorAll('.live-clock');
+            setInterval(() => {
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString('vi-VN', { hour12: false });
+                const dateStr = now.toLocaleDateString('vi-VN');
+                clockElements.forEach(el => {
+                    el.innerHTML = `🕒 ${timeStr} | ${dateStr}`;
+                });
+            }, 1000);
+        }
+        
+       
+
+const particlesContainer = document.getElementById("particles");
+
+function createParticle() {
+    const p = document.createElement("div");
+    p.classList.add("particle");
+
+    const size = Math.random() * 4 + 2;
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+
+    p.style.left = Math.random() * window.innerWidth + "px";
+    p.style.animationDuration = (Math.random() * 5 + 5) + "s";
+
+    particlesContainer.appendChild(p);
+
+    setTimeout(() => {
+        p.remove();
+    }, 10000);
+}
+
+setInterval(createParticle, 200);
+
+const glow = document.getElementById("mouseGlow");
+
+document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+// click ra ngoài
+overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+ /* ===== MUSIC PLAYER ===== */
+    const playlist = [
+      'https://files.catbox.moe/s2u2jn.mp3'
+    ];
+
+    const songNames = [
+      'Mở Lòng Vì Ai Remix'
+    ];
+
+    const audio = document.getElementById('bgMusic');
+    let currentSongIndex = 0;
+
+    function initMusicPlayer() {
+      createMusicControls();
+      createSongList();
+      createSongNotification();
+      playCurrentSong();
+      
+      // Auto play after 1 second
+      setTimeout(() => {
+        autoPlayMusic();
+      }, 1000);
+
+      audio.addEventListener('ended', playNextSong);
+    }
+
+    function createMusicControls() {
+      const controls = document.createElement('div');
+      controls.className = 'music-controls';
+      controls.innerHTML = `
+        <button class="music-btn" onclick="playPreviousSong()" title="Bài trước">
+          <i class="bi bi-skip-backward-fill"></i>
+        </button>
+        <button class="music-btn" onclick="togglePlayPause()" title="Phát/Tạm dừng">
+          <i class="bi bi-play-fill" id="playIcon"></i>
+          <i class="bi bi-pause-fill" id="pauseIcon" style="display:none"></i>
+        </button>
+        <button class="music-btn" onclick="playNextSong()" title="Bài tiếp theo">
+          <i class="bi bi-skip-forward-fill"></i>
+        </button>
+        <button class="music-btn select-btn" onclick="openSongList()" title="Chọn bài hát">
+          <i class="bi bi-music-note-list"></i>
+        </button>
+      `;
+      document.body.appendChild(controls);
+    }
+
+    function createSongList() {
+      const songList = document.createElement('div');
+      songList.className = 'song-list-panel';
+      songList.innerHTML = `
+        <div class="song-list-header">
+          <span>Chọn bài hát</span>
+          <button class="close-list-btn" onclick="closeSongList()">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="song-list-content">
+          ${songNames.map((song, index) => `
+            <div class="song-list-item ${index === currentSongIndex ? 'active' : ''}" 
+                 onclick="selectSong(${index})">
+              <i class="bi bi-music-note"></i>
+              <span>${song}</span>
+              ${index === currentSongIndex ? '<i class="bi bi-check"></i>' : ''}
+            </div>
+          `).join('')}
+        </div>
+      `;
+      document.body.appendChild(songList);
+    }
+
+    function createSongNotification() {
+      const notification = document.createElement('div');
+      notification.className = 'song-notification';
+      notification.innerHTML = `
+        <div class="notification-content">
+          <i class="bi bi-music-note-beamed"></i>
+          <span id="currentSongText">Đang phát: ${songNames[0]}</span>
+        </div>
+      `;
+      document.body.appendChild(notification);
+    }
+
+    function playCurrentSong() {
+      audio.src = playlist[currentSongIndex];
+      audio.volume = 0.7;
+      audio.load();
+      
+      // Update active song in list
+      document.querySelectorAll('.song-list-item').forEach((item, index) => {
+        item.classList.toggle('active', index === currentSongIndex);
+      });
+    }
+
+    function playNextSong() {
+      currentSongIndex = (currentSongIndex + 1) % playlist.length;
+      playCurrentSong();
+      audio.play();
+      updateMusicIcons('play');
+      showSongNotification();
+    }
+
+    function playPreviousSong() {
+      currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+      playCurrentSong();
+      audio.play();
+      updateMusicIcons('play');
+      showSongNotification();
+    }
+
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        updateMusicIcons('play');
+      } else {
+        audio.pause();
+        updateMusicIcons('pause');
+      }
+    }
+
+    function updateMusicIcons(state) {
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      
+      if (state === 'play') {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+      } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      }
+    }
+
+    function openSongList() {
+      document.querySelector('.song-list-panel').classList.add('show');
+    }
+
+    function closeSongList() {
+      document.querySelector('.song-list-panel').classList.remove('show');
+    }
+
+    function selectSong(index) {
+      currentSongIndex = index;
+      playCurrentSong();
+      
+      audio.play().then(() => {
+        updateMusicIcons('play');
+        showSongNotification();
+        closeSongList();
+      }).catch(error => {
+        console.log('Không thể phát nhạc:', error);
+        updateMusicIcons('pause');
+        showSongNotification();
+        closeSongList();
+      });
+    }
+
+    function showSongNotification() {
+      const notification = document.querySelector('.song-notification');
+      const songText = document.getElementById('currentSongText');
+      
+      songText.textContent = `Đang phát: ${songNames[currentSongIndex]}`;
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+
+    function autoPlayMusic() {
+      audio.load();
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log('Nhạc tự động phát thành công');
+          updateMusicIcons('play');
+          showSongNotification();
+        }).catch(error => {
+          console.log('Tự động phát bị chặn, đang chờ tương tác người dùng');
+          showInteractionNotification();
+          document.body.addEventListener('click', enableAudioOnInteraction, { once: true });
+        });
+      }
+    }
+
+    function showInteractionNotification() {
+      const notification = document.createElement('div');
+      notification.className = 'interaction-notification';
+      notification.innerHTML = `
+        <div class="notification-content">
+          <i class="bi bi-music-note-beamed"></i>
+          <span>Nhấn vào trang để bật nhạc</span>
+        </div>
+      `;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        if (notification.parentNode) notification.remove();
+      }, 5000);
+    }
+
+    function enableAudioOnInteraction() {
+      const interactionNotification = document.querySelector('.interaction-notification');
+      if (interactionNotification) interactionNotification.remove();
+      
+      audio.play().then(() => {
+        console.log('Nhạc đã được bật sau tương tác người dùng');
+        updateMusicIcons('play');
+        showSongNotification();
+      }).catch(error => {
+        console.log('Vẫn không thể phát nhạc:', error);
+      });
+    }
+    </script>
+    
+    <script>
+    window.onload = function () {
+        startClock();
+        initMusicPlayer(); // 👈 thêm dòng này
+    };
+</script>
+    
+    <script src="security.js"></script>
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="9dff2abb-1072-4909-8c58-5838aac1a255" data-app-host="app.netlify.com"></script>
